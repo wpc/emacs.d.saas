@@ -1,0 +1,9 @@
+/auto-save-list/
+/backups/
+/elpa/
+session.*
+tramp
+/.smex-items
+/eshell/history
+/places
+/url/cookies
