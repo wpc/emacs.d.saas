@@ -13,6 +13,9 @@
                       starter-kit-ruby
                       color-theme
                       textmate
+                      flymake-easy
+                      yaml-mode
+                      zenburn-theme
                       expand-region
                       yasnippet-bundle)
   "A list of packages to ensure are installed at launch.")
@@ -57,17 +60,6 @@
 
 
 (require 'flymake-json)
-
-
-
-;; Sort out the font size and background color
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
-
 
 ;; change magit diff colors
 (eval-after-load 'magit
