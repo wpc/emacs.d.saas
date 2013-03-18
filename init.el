@@ -58,6 +58,10 @@
 (require 'duplicate-line)
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
+;; cmd-return to toggle full screen on mac
+(global-set-key (kbd "s-<return>") 'ns-toggle-fullscreen)
+
+
 
 (require 'flymake-json)
 
@@ -83,6 +87,12 @@
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
 
+
+;; disable annoyed ring bell
+(setq ring-bell-function 'ignore)
+
+;; increase font size
+(set-face-attribute 'default nil :height 130)
+
+
 (load-theme 'zenburn)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
