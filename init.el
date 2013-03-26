@@ -61,7 +61,8 @@
 ;; cmd-return to toggle full screen on mac
 (global-set-key (kbd "s-<return>") 'ns-toggle-fullscreen)
 
-
+;; load ruby-test-run
+(require 'ruby-test-run)
 
 (require 'flymake-json)
 
