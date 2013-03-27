@@ -65,6 +65,10 @@
 
 ;; load ruby-test-run
 (require 'ruby-test-run)
+(global-set-key (kbd "C-x r f") 'ruby-test-run-file)
+(global-set-key (kbd "C-x r s") 'ruby-test-run-single)
+(global-set-key (kbd "C-x r l") 'ruby-test-run-last)
+
 
 (require 'flymake-json)
 
@@ -102,7 +106,7 @@
      ;; If you edit it by hand, you could mess it up, so be careful.
      ;; Your init file should contain only one such instance.
      ;; If there is more than one, they won't work right.
-     '(default ((t (:stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))))
+     '(default ((t (:stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))))
 
 
 ;; increase font size
