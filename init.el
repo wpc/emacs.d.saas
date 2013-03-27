@@ -13,6 +13,8 @@
                       starter-kit-ruby
                       color-theme
                       textmate
+                      rvm
+                      ruby-compilation
                       flymake-easy
                       yaml-mode
                       zenburn-theme
