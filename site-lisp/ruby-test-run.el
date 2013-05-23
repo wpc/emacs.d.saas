@@ -1,7 +1,24 @@
+(defvar ruby-test-ruby-executable)
+(set 'ruby-test-ruby-executable nil)
+
+(defun ruby-test-run-use-project-local-jruby ()
+  (interactive)
+  (set 'ruby-test-ruby-executable (expand-file-name "script/jruby" (textmate-project-root))))
+
+(defun ruby-test-run-use-global-ruby ()
+  (interactive)
+  (set 'ruby-test-ruby-executable nil))
+
+(defun ruby-test-run-get-ruby-executable ()
+  (or ruby-test-ruby-executable ruby-compilation-executable))
+
 (defun find-ruby-testcase-name ()
+  (interactive)
   (save-excursion
-    (if (re-search-backward "^[ \\t]*def[ \\t]+\\(test[_a-z0-9]*\\)" nil t)
-	(match-string 1))))
+    (cond ((re-search-backward "^[ \\t]*def[ \\t]+\\(test[_a-z0-9]*\\)" nil t)
+           (match-string 1))
+          ((re-search-backward "^[ \\t]*test[ \\t]+['\"]\\(.+\\)['\"][ \\t]+do" nil t)
+           (concat "test_" (replace-regexp-in-string " " "_" (match-string 1)))))))
 
 (defvar last-ruby-test-command)
 (defvar last-ruby-test-filename)
@@ -10,7 +27,7 @@
     (let* ((path (buffer-file-name))
          (filename (file-name-nondirectory path))
          (test-path (expand-file-name "test" (textmate-project-root)))
-         (command (append (list ruby-compilation-executable)
+         (command (append (list (ruby-test-run-get-ruby-executable))
                           loader-opts
                           (list "-I" test-path path)
                           test-opts)))

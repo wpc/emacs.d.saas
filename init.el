@@ -70,6 +70,9 @@
 (global-set-key (kbd "C-x r l") 'ruby-test-run-last)
 
 
+;; load rails-toolbelt
+(require 'rails-toolbelt)
+
 (require 'flymake-json)
 
 ;; change magit diff colors
