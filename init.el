@@ -15,6 +15,7 @@
                       textmate
                       rvm
                       ruby-compilation
+                      iedit
                       flymake-easy
                       yaml-mode
                       zenburn-theme
