@@ -17,6 +17,7 @@
                       ruby-compilation
                       iedit
                       flymake-easy
+                      flx-ido
                       yaml-mode
                       zenburn-theme
                       expand-region
@@ -34,6 +35,11 @@
 (global-auto-revert-mode 1)
 
 (require 'yaml-mode)
+(require 'sws-mode)
+(require 'jade-mode)
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-;") 'ace-jump-mode)
+(define-key global-map (kbd "C-'") 'ace-jump-line-mode)
 
 ;; Textmate like fuzzy file locate and symbol lookup
 ;; Map to Super-t and Super-T. For the sake of Mac
@@ -61,8 +67,11 @@
 (require 'duplicate-line)
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
-;; cmd-return to toggle full screen on mac
-(global-set-key (kbd "s-<return>") 'ns-toggle-fullscreen)
+;; vi's o command
+(require 'open-next-line)
+(global-set-key (kbd "C-o") 'open-next-line)
+(global-set-key (kbd "M-o") 'open-previous-line)
+
 
 ;; load ruby-test-run
 (require 'ruby-test-run)
@@ -98,9 +107,15 @@
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
 
+;; Setting rbenv path
+(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" "/usr/local/bin:" (getenv "PATH")))
+(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons "/usr/local/bin" (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path))))
+
 
 ;; disable annoyed ring bell
 (setq ring-bell-function 'ignore)
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
 
 
 ;; Sort out the font size and background color

@@ -2,4 +2,4 @@
 # name: low tech debug
 # key: p
 # --
-puts "[DEBUG]${1:} => #{$1.inspect}"
+puts "[DEBUG] #{__FILE__}:#{__LINE__} ${1:} => #{$1.inspect}"
